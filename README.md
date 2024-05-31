@@ -32,7 +32,9 @@ docker build -t goals-react .
 - React 컨테이너 실행
 
 ```
-docker run --name golas-react-app -it --rm -p 3000:3000 golas-react
+docker run --name golas-react-app -it --rm
+-v "D:/dev/docker_leaner/docker_app/frontend/src:/app/src"
+-p 3000:3000 golas-react
 ```
 
 ## 🛠Node 설정
