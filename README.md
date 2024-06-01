@@ -14,10 +14,10 @@ docker network create goals-net
 ## 🛠Mongodb 설정
 - Mongodb 컨테이너 실행
 ```
-docker run --rm -d -p 27017:27017 -v data:/data/db   
+docker run --rm -d -p 27017:27017 -v data:/data/db
  -e MONGO_INITDB_ROOT_USERNAME=root
  -e MONGO_INITDB_ROOT_PASSWORD=secret
- --network 	   
+ --network
  --name mongodb mongo
 ```
 
@@ -47,13 +47,28 @@ docker build -t goals-node .
 - Node 컨테이너 실행
 
 ```
-docker run --rm -d -p 80:80  
+docker run --rm -d -p 80:80
  -v 경로\backend\:/app
- -v logs:/app/logs   
- -v /app/node_modules  
+ -v logs:/app/logs
+ -v /app/node_modules
  --network goals-net
  --name goals-node-app goals-node
 ```
+
+## docker-compose 실행
+- docker-compose 명령어
+
+```
+#컨테이너 시작
+docker-compose up -d
+#컨테이너 삭제
+docker-compose down
+#볼륨제거
+docker-compose down -v
+#재빌드
+docker-compose build
+```
+
 
 
 ##  📢 참조
